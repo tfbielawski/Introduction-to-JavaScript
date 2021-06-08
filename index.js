@@ -244,60 +244,68 @@ Use the game function below to do the following:
 
 //Random number range 1 - 3
 //Math.random() calls the random function. 3 indicates high end of the range. +1 means the low end of range starts at 1.
-const computer = Math.floor(Math.random() * 3) + 1; 
+let computer = Math.floor(Math.random() * 3) + 1;
+if (computer == 1)
+{
+  computer = "rock";
+}
+
+else if (computer == 2)
+{
+  computer = "paper";
+}
+
+else if (computer == 3)
+{
+  computer = "scissors";
+}
+
+
 
 //Define the function
 function game(userChoice, computersChoice)
 {
   //Compare the choices
   //Tie scenario
-  if (userChoice == 1 && computersChoice == 1 || userChoice == 2 && computersChoice == 2 || userChoice == 3 && computersChoice == 3)
+  if (userChoice == computersChoice)
   {
     //Print results
     return "it's a tie";
+
   }
 
   //User = rock, computer = scissors
-  else if ( userChoice == 1 && computersChoice == 2)
+  else if ( userChoice === "rock" && computersChoice === "scissors")
   {
     //Print results
-    return "you win!" ;
+     return "you win!" ;
   }
 
   //User = rock, computer = paper
-  else if ( userChoice == 1 && computersChoice == 3)
+  else if ( userChoice === "paper" && computersChoice === "rock")
   {
     //Print results
-    return "you lose!";
+     return "you win!";
   }
 
   //User = paper, computer rock
-  else if ( userChoice == 2 && computersChoice == 1)
+  else if ( userChoice === "scissors" && computersChoice === "paper")
   {
     //Print results
-    return "you win!";
+     return "you win!";
   }
 
-  else if(userChoice == 2 && computersChoice == 3)
+  else
   {
     //Print results
-    return "you win!";
-  }
-
-  else if ( userChoice == 3 && computersChoice == 1)
-  {
-    //Print results
-    return "you lose!";
-  }
-
-  else if ( userChoice == 3 && computersChoice == 2)
-  {
-    //Print results
-    return "you win!";
+     return "you lose";
   }
 }
 
-//Call the function, enter score
+
+
+//Call the function, pass in the computersChoice
+
 game(computer,3);
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
