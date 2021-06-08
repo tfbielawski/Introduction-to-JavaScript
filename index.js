@@ -18,6 +18,22 @@ Do the following:
    HINT: no function required
 */
 
+//Declare and initialize votingAge
+const votingAge = 18;
+//If voting age is >= 18
+if (votingAge >= 18)
+{
+  //Print true
+  console.log("true");
+}
+
+//Otherwise
+else
+{
+  //Print false
+  console.log("false")
+}
+
 
 
 /*
@@ -31,8 +47,33 @@ Do the following:
    HINT: no function required
 */
 
+//Declare, initialize, and print first variable
+let firstVariable = 45;
+console.log("The first variable is: " + firstVariable);
 
+//Declare, initialize, and print second variable
+let secondVariable = 99;
+console.log("The second variable is: " + secondVariable);
 
+//Compare the values and change
+if (firstVariable < secondVariable)
+{
+  //Print the outcome of the comparison
+  console.log("The first variable is way too small. Let's change it!")
+
+  //Reassign the variables
+  let firstVariable = secondVariable;
+
+  //Print the outcome of the reassignment
+  console.log("The first variable now equals: " + firstVariable);
+}
+
+//Otherwise 
+else
+{
+  //Print this
+  console.log("These values are all right.");
+}
 
 
 /*
@@ -46,8 +87,17 @@ Do the following:
    HINT: look up the Number method
 */
 
+//Declare, initialize, and print a string
+let someString = "1999";
+console.log("The string's value is: " + someString);
 
 
+//Declare the variable to hold the int. 
+//Use parsInt() to convert the string into an int and assign it to this variable
+let someInteger = parseInt(someString);
+
+//Print the converted integer
+console.log("The integer's value is: " + someInteger);
 
 /*
 Task 1d - Multiply
@@ -58,11 +108,15 @@ Do the following:
    3. Multiply a and b and return the answer
 */
 
-function multiply(/*add your code here*/){
-    /*add your code here*/
-  }
+//Define the function and parameters
+function multiply(a, b)
+{
+  //Do the math and print the result
+  console.log("The result = " + a * b); 
+}
 
-
+//Call the function, pass in two integers as arguments.
+multiply(3,4);
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -74,10 +128,19 @@ Do the following:
    3. Return the newly calculated age
 */
 
-function dogYears(/*add your code here*/){
-    /*add your code here*/
+/* Ask about this during office hours. Why is it failing? */
+//Define the function and parameter
+function dogYears(humanYears)
+{
+  //Define dogYears as constant value for math operation
+  const dogYears = 7;
+
+  //Do the math and display the result
+  return "Your age in dog years = " + humanYears * dogYears;  
 }
 
+//Call the function and pass in an integer
+dogYears(45);
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -110,47 +173,54 @@ Use the hungryDog function and feeding requirements below to do the following:
 //Pass in weight and age
 function hungryDog(weight, age)
 {
+  //Check first condition
   if (age >= 1 && weight <= 5)
   {
     return weight * 0.05;
   }
 
+  //Check next condition
   else if (age >= 1 && weight >= 6 && weight <= 10)
   {
     return weight * 0.04;
   }
-   
+  
+  //Check next condition
   else if (age >= 1 && weight >= 11 && weight <= 15)
   {
     return weight * 0.03;
   }
 
+  //Check next condition
   else if (age >= 1 && weight > 15 )
   {
     return weight * 0.02;
   }
 
+  //Check next condition
   else if (age < 1 && age >= 0.583)
   {
     return weight * 0.1;
   }
 
+  //Check next condition
   else if (age < 0.583 && age >= 0.333)
   {
     return weight * 0.05;
   }
 
+  //Check next condition
   else if (age < 0.333 )
   {
     return weight * 0.1;
   }
 
-  
+  //Check next condition
+  else
+  {
+    return console.log("Please try again");
+  }
 }
-
-
-
-
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -174,8 +244,55 @@ Use the game function below to do the following:
   HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
 
-function game(user, computer){
-    /*add your code here*/
+//Define the function
+function game(userChoice, computersChoice)
+{
+  //Compare the choices
+  //Tie scenario
+  if (userChoice == 1 && computersChoice == 1 || userChoice == 2 && computersChoice == 2 || userChoice == 3 && computersChoice == 3)
+  {
+    //Print results
+    return "It's a tie. Let's go again!";
+  }
+
+  //User = rock, computer = scissors
+  else if ( userChoice == 1 && computersChoice == 2)
+  {
+    //Print results
+    return "You chose rock. I chose scissors. Rock beats scissors: You win!" ;
+  }
+
+  //User = rock, computer = paper
+  else if ( userChoice == 1 && computersChoice == 3)
+  {
+    //Print results
+    return "You chose rock. I chose paper. Paper beats rock: You lose!";
+  }
+
+  //User = paper, computer rock
+  else if ( userChoice == 2 && computersChoice == 1)
+  {
+    //Print results
+    return "You chose paper. I chose rock. Paper beats rock: You win!";
+  }
+
+  else if(userChoice == 2 && computersChoice == 3)
+  {
+    //Print results
+    "You chose paper. I chose rock. Paper beats rock: You win!";
+  }
+
+  else if ( userChoice == 3 && computersChoice == 1)
+  {
+    //Print results
+    return "You chose scissors. I chose rock. Rock beats scissors: You lose!";
+  }
+
+  else if ( userChoice == 3 && computersChoice == 2)
+  {
+    //Print results
+    return "You chose scissors. I chose paper. Scissors beats paper: You win!";
+  }
 }
   
   
@@ -187,14 +304,23 @@ function game(user, computer){
 /*
 Using the miles function below do the following:
   1. Receive a number of kilometers
-  2. Convert the number of kiolmeters received to miles
+  2. Convert the number of kilometers received to miles
   3. Return the number of miles
 */
 
-function miles(/*add your code here*/){
-    /*add your code here*/
-  }
+//Declare and initialize variable to hold the number of km per mile
+const convertToMiles = 0.621371;
 
+//Define the function, pass in numKilos
+function miles(numKilos)
+{
+  //Print the number of kilos passed in
+  console.log("Number of kilometers: " + numKilos);
+  return "Number of miles = " + numKilos * convert ;
+}
+
+//Call the function
+miles(7);
 
 
 //Task 5b - Feet to CM
@@ -205,10 +331,18 @@ Using the feet function below do the following:
   3. Return number of feet
 */
 
-function feet(/*add your code here*/){
-    /*add your code here*/
-  }
- 
+//Declare and initialize variable to hold the number of km per mile
+const convertToInches = 0.621371;
+
+//Define the function, pass in centimeters
+function feet(centimeters)
+{
+  //Print the number of cms passed in
+  console.log("Number of centimeters is: " + centimeters);
+  return "Number of inches = " + centimeters * convertToInches ;
+}
+
+feet(52);
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
