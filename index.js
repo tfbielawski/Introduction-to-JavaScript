@@ -112,7 +112,7 @@ Do the following:
 function multiply(a, b)
 {
   //Do the math and print the result
-  console.log("The result = " + a * b); 
+  return a * b; 
 }
 
 //Call the function, pass in two integers as arguments.
@@ -132,11 +132,9 @@ Do the following:
 //Define the function and parameter
 function dogYears(humanYears)
 {
-  //Define dogYears as constant value for math operation
-  const dogYears = 7;
 
   //Do the math and display the result
-  return "Your age in dog years = " + humanYears * dogYears;  
+  return  humanYears * 7;  
 }
 
 //Call the function and pass in an integer
@@ -244,6 +242,10 @@ Use the game function below to do the following:
   HINT: Remember that the order in which we pass in our arguments matters when it comes to parameters
 */
 
+//Random number range 1 - 3
+//Math.random() calls the random function. 3 indicates high end of the range. +1 means the low end of range starts at 1.
+const computer = Math.floor(Math.random() * 3) + 1; 
+
 //Define the function
 function game(userChoice, computersChoice)
 {
@@ -252,50 +254,51 @@ function game(userChoice, computersChoice)
   if (userChoice == 1 && computersChoice == 1 || userChoice == 2 && computersChoice == 2 || userChoice == 3 && computersChoice == 3)
   {
     //Print results
-    return "It's a tie. Let's go again!";
+    return "it's a tie";
   }
 
   //User = rock, computer = scissors
   else if ( userChoice == 1 && computersChoice == 2)
   {
     //Print results
-    return "You chose rock. I chose scissors. Rock beats scissors: You win!" ;
+    return "you win!" ;
   }
 
   //User = rock, computer = paper
   else if ( userChoice == 1 && computersChoice == 3)
   {
     //Print results
-    return "You chose rock. I chose paper. Paper beats rock: You lose!";
+    return "you lose!";
   }
 
   //User = paper, computer rock
   else if ( userChoice == 2 && computersChoice == 1)
   {
     //Print results
-    return "You chose paper. I chose rock. Paper beats rock: You win!";
+    return "you win!";
   }
 
   else if(userChoice == 2 && computersChoice == 3)
   {
     //Print results
-    "You chose paper. I chose rock. Paper beats rock: You win!";
+    return "you win!";
   }
 
   else if ( userChoice == 3 && computersChoice == 1)
   {
     //Print results
-    return "You chose scissors. I chose rock. Rock beats scissors: You lose!";
+    return "you lose!";
   }
 
   else if ( userChoice == 3 && computersChoice == 2)
   {
     //Print results
-    return "You chose scissors. I chose paper. Scissors beats paper: You win!";
+    return "you win!";
   }
 }
-  
-  
+
+//Call the function, enter score
+game(computer,3);
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
@@ -308,15 +311,10 @@ Using the miles function below do the following:
   3. Return the number of miles
 */
 
-//Declare and initialize variable to hold the number of km per mile
-const convertToMiles = 0.621371;
-
 //Define the function, pass in numKilos
-function miles(numKilos)
+function miles(km)
 {
-  //Print the number of kilos passed in
-  console.log("Number of kilometers: " + numKilos);
-  return "Number of miles = " + numKilos * convert ;
+  return km * 0.621371;
 }
 
 //Call the function
@@ -331,20 +329,14 @@ Using the feet function below do the following:
   3. Return number of feet
 */
 
-//Declare and initialize variable to hold the number of km per mile
-const convertToInches = 0.621371;
-
 //Define the function, pass in centimeters
 function feet(centimeters)
 {
-  //Print the number of cms passed in
-  console.log("Number of centimeters is: " + centimeters);
-  return "Number of inches = " + centimeters * convertToInches ;
+  //Return the number of feet
+  return centimeters / 30.48;
 }
 
-feet(52);
-
-
+feet(160);
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
 
 // Let's Sing 99 Bottles of Soda on the Wall!
@@ -355,9 +347,19 @@ Using the annoyingSong function below do the following:
       "{number} bottles of soda on the wall, {number} bottles of soda, take one down pass it around {number left over} bottles of soda on the wall"
 */
 
-function annoyingSong(/*add your code here*/){
-        /*add your code here*/
+//Define the function
+function annoyingSong(startingNum)
+{
+  //For loop to count down from starting number
+  for (let number = startingNum; number >=0; number--) 
+  {
+    //Return the required verse.
+    console.log (number + " bottles of soda on the wall " + number + " bottles of soda, take one down pass it around " + --number + " bottles of soda on the wall");
   }
+}
+
+//Call the function, pass in desired starting number
+annoyingSong(10);
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀*/
@@ -375,10 +377,52 @@ Using the grade function below do the following:
    below should return 'you got an F'
 */
   
-function grade(/*Your Code here */){
-  /*Your Code here */
+//Define the function
+function grade(scoreEntered)
+{
+  //Print the score entered
+  console.log("Score entered is: " + scoreEntered);
+
+  //Test range A
+  if (scoreEntered == 100 || scoreEntered < 100 && scoreEntered >= 90)
+  {
+    return "you got an A";
+  }
+
+  //Test range B
+  else if (scoreEntered <= 89 && scoreEntered >= 80)
+  {
+    return "you got a B";
+  }
+
+  //Test range C
+  else if (scoreEntered <= 79 && scoreEntered >= 70)
+  {
+    return "you got a C";
   }
   
+  //Test range D
+  else if (scoreEntered <= 69 && scoreEntered >= 60)
+  {
+    return "you got a D";
+  }
+
+  //Test range F
+  else if (scoreEntered < 60 && scoreEntered >= 0)
+  {
+    return "you got an F";
+  }
+
+  //Score entered is out of bounds
+  else if (scoreEntered > 100 || scoreEntered < 0)
+  {
+    return "Please use a valid score that does not exceed 100";
+  }
+
+}
+
+//Call the function, pass in the desired test score
+grade(-5);
   
 
 /*💪💪💪💪💪💪💪💪💪💪 Stretch 💪💪💪💪💪💪💪💪💪💪*/
