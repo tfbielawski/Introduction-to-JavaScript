@@ -271,7 +271,6 @@ function game(userChoice, computersChoice)
   {
     //Print results
     return "it's a tie";
-
   }
 
   //User = rock, computer = scissors
@@ -281,11 +280,16 @@ function game(userChoice, computersChoice)
      return "you win!" ;
   }
 
-  //User = rock, computer = paper
-  else if ( userChoice === "paper" && computersChoice === "rock")
+  else if ( userChoice === "rock" && computersChoice === "paper")
   {
     //Print results
-     return "you win!";
+     return "you lose!" ;
+  }
+
+  else if ( userChoice === "scissors" && computersChoice === "rock")
+  {
+    //Print results
+     return "you lose!" ;
   }
 
   //User = paper, computer rock
@@ -293,6 +297,20 @@ function game(userChoice, computersChoice)
   {
     //Print results
      return "you win!";
+  }
+
+  //User = rock, computer = paper
+  else if ( userChoice === "paper" && computersChoice === "rock")
+  {
+    //Print results
+     return "you win!";
+  }
+
+  //User = rock, computer = paper
+  else if ( userChoice === "paper" && computersChoice === "scissors")
+  {
+    //Print results
+     return "you lose!";
   }
 
   else
